@@ -1,0 +1,429 @@
+# Bisnesshub
+Site de compra e venda de angola
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>BusinessHub</title>
+
+<style>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background: #f5f6fa;
+    color: #222;
+}
+
+header {
+    background: #5b21b6;
+    color: white;
+    padding: 16px;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.top {
+    max-width: 1100px;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+}
+
+.logo {
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.login {
+    background: white;
+    color: #5b21b6;
+    border: none;
+    padding: 10px 18px;
+    border-radius: 20px;
+    font-weight: bold;
+}
+
+.hero {
+    max-width: 1100px;
+    margin: auto;
+    padding: 40px 20px 25px;
+}
+
+.hero h1 {
+    font-size: 38px;
+    margin-bottom: 10px;
+}
+
+.hero p {
+    color: #666;
+    margin-bottom: 22px;
+}
+
+.search {
+    display: flex;
+    gap: 10px;
+}
+
+.search input {
+    flex: 1;
+    padding: 16px;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    font-size: 16px;
+}
+
+.search button {
+    background: #5b21b6;
+    color: white;
+    border: none;
+    padding: 15px 22px;
+    border-radius: 12px;
+}
+
+.categories {
+    max-width: 1100px;
+    margin: auto;
+    padding: 0 20px 25px;
+}
+
+.categories button {
+    border: none;
+    background: white;
+    padding: 12px 18px;
+    margin: 5px;
+    border-radius: 20px;
+}
+
+.products {
+    max-width: 1100px;
+    margin: auto;
+    padding: 20px;
+}
+
+.products h2 {
+    margin-bottom: 20px;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns:
+        repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+}
+
+.card {
+    background: white;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,.07);
+}
+
+.photo {
+    height: 180px;
+    background: #e5e7eb;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 55px;
+}
+
+.info {
+    padding: 15px;
+}
+
+.badge {
+    display: inline-block;
+    background: #ede9fe;
+    color: #5b21b6;
+    padding: 5px 9px;
+    border-radius: 8px;
+    font-size: 12px;
+    margin-bottom: 8px;
+}
+
+.price {
+    color: #5b21b6;
+    font-size: 21px;
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+.location {
+    color: #777;
+    font-size: 14px;
+    margin-bottom: 12px;
+}
+
+.actions {
+    display: flex;
+    gap: 8px;
+}
+
+.buy {
+    flex: 1;
+    background: #5b21b6;
+    color: white;
+    border: none;
+    padding: 11px;
+    border-radius: 10px;
+    font-weight: bold;
+}
+
+.ask {
+    flex: 1;
+    background: #eee;
+    border: none;
+    padding: 11px;
+    border-radius: 10px;
+}
+
+.sell {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    background: #5b21b6;
+    color: white;
+    border: none;
+    padding: 16px 22px;
+    border-radius: 30px;
+    font-size: 16px;
+    font-weight: bold;
+    box-shadow: 0 5px 20px rgba(0,0,0,.2);
+}
+
+footer {
+    text-align: center;
+    padding: 40px;
+    margin-top: 40px;
+    color: #777;
+}
+
+@media(max-width:600px) {
+    .hero h1 {
+        font-size: 28px;
+    }
+
+    .search {
+        flex-direction: column;
+    }
+
+    .top {
+        flex-wrap: wrap;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="top">
+        <div class="logo">🏪 BusinessHub</div>
+
+        <button class="login">
+            Entrar / Criar conta
+        </button>
+    </div>
+</header>
+
+<section class="hero">
+
+    <h1>Compra. Vende. Encontra. 🚀</h1>
+
+    <p>
+        O teu marketplace para produtos novos e usados.
+    </p>
+
+    <div class="search">
+
+        <input
+            type="text"
+            placeholder="O que estás à procura?"
+        >
+
+        <button>Pesquisar</button>
+
+    </div>
+
+</section>
+
+<section class="categories">
+
+    <button>📱 Eletrónicos</button>
+    <button>👕 Moda</button>
+    <button>🚗 Automóveis</button>
+    <button>🏠 Casa</button>
+    <button>🎮 Jogos</button>
+    <button>📦 Outros</button>
+
+</section>
+
+<section class="products">
+
+    <h2>🔥 Produtos em destaque</h2>
+
+    <div class="grid">
+
+        <div class="card">
+
+            <div class="photo">📱</div>
+
+            <div class="info">
+
+                <span class="badge">Usado</span>
+
+                <h3>Smartphone Android</h3>
+
+                <div class="price">
+                    85.000 Kz
+                </div>
+
+                <div class="location">
+                    📍 Luanda
+                </div>
+
+                <div class="actions">
+
+                    <button class="buy">
+                        Comprar
+                    </button>
+
+                    <button class="ask">
+                        Perguntar
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="card">
+
+            <div class="photo">💻</div>
+
+            <div class="info">
+
+                <span class="badge">Usado</span>
+
+                <h3>Computador portátil</h3>
+
+                <div class="price">
+                    120.000 Kz
+                </div>
+
+                <div class="location">
+                    📍 Viana
+                </div>
+
+                <div class="actions">
+
+                    <button class="buy">
+                        Comprar
+                    </button>
+
+                    <button class="ask">
+                        Perguntar
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="card">
+
+            <div class="photo">🎮</div>
+
+            <div class="info">
+
+                <span class="badge">Usado</span>
+
+                <h3>PlayStation</h3>
+
+                <div class="price">
+                    150.000 Kz
+                </div>
+
+                <div class="location">
+                    📍 Kilamba
+                </div>
+
+                <div class="actions">
+
+                    <button class="buy">
+                        Comprar
+                    </button>
+
+                    <button class="ask">
+                        Perguntar
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="card">
+
+            <div class="photo">👟</div>
+
+            <div class="info">
+
+                <span class="badge">Novo</span>
+
+                <h3>Ténis masculino</h3>
+
+                <div class="price">
+                    35.000 Kz
+                </div>
+
+                <div class="location">
+                    📍 Talatona
+                </div>
+
+                <div class="actions">
+
+                    <button class="buy">
+                        Comprar
+                    </button>
+
+                    <button class="ask">
+                        Perguntar
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<button class="sell">
+    ＋ Vender produto
+</button>
+
+<footer>
+    © 2026 BusinessHub
+</footer>
+
+</body>
+</html>
