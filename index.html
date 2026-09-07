@@ -1,429 +1,595 @@
-# Bisnesshub
-Site de compra e venda de angola
-<!DOCTYPE html>
+TYPE html>
 <html lang="pt">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>BusinessHub</title>
+  <title>BusinessHub</title>
 
-<style>
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    font-family: Arial, sans-serif;
-}
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
 
-body {
-    background: #f5f6fa;
-    color: #222;
-}
+    body {
+      background: #f4f6f8;
+      color: #222;
+    }
 
-header {
-    background: #5b21b6;
-    color: white;
-    padding: 16px;
-    position: sticky;
-    top: 0;
-    z-index: 10;
-}
+    header {
+      background: #5b21b6;
+      color: white;
+      padding: 18px;
+      text-align: center;
+    }
 
-.top {
-    max-width: 1100px;
-    margin: auto;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 15px;
-}
+    header h1 {
+      font-size: 28px;
+    }
 
-.logo {
-    font-size: 25px;
-    font-weight: bold;
-}
+    header p {
+      margin-top: 6px;
+      opacity: 0.9;
+    }
 
-.login {
-    background: white;
-    color: #5b21b6;
-    border: none;
-    padding: 10px 18px;
-    border-radius: 20px;
-    font-weight: bold;
-}
+    nav {
+      background: white;
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      padding: 12px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      flex-wrap: wrap;
+    }
 
-.hero {
-    max-width: 1100px;
-    margin: auto;
-    padding: 40px 20px 25px;
-}
+    nav button {
+      border: none;
+      background: #eee;
+      padding: 11px 16px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: bold;
+    }
 
-.hero h1 {
-    font-size: 38px;
-    margin-bottom: 10px;
-}
+    nav button:hover {
+      background: #ddd;
+    }
 
-.hero p {
-    color: #666;
-    margin-bottom: 22px;
-}
+    .container {
+      max-width: 1100px;
+      margin: auto;
+      padding: 20px;
+    }
 
-.search {
-    display: flex;
-    gap: 10px;
-}
+    .hero {
+      background: white;
+      padding: 25px;
+      border-radius: 12px;
+      margin-bottom: 20px;
+      text-align: center;
+    }
 
-.search input {
-    flex: 1;
-    padding: 16px;
-    border: 1px solid #ddd;
-    border-radius: 12px;
-    font-size: 16px;
-}
-
-.search button {
-    background: #5b21b6;
-    color: white;
-    border: none;
-    padding: 15px 22px;
-    border-radius: 12px;
-}
-
-.categories {
-    max-width: 1100px;
-    margin: auto;
-    padding: 0 20px 25px;
-}
-
-.categories button {
-    border: none;
-    background: white;
-    padding: 12px 18px;
-    margin: 5px;
-    border-radius: 20px;
-}
-
-.products {
-    max-width: 1100px;
-    margin: auto;
-    padding: 20px;
-}
-
-.products h2 {
-    margin-bottom: 20px;
-}
-
-.grid {
-    display: grid;
-    grid-template-columns:
-        repeat(auto-fit, minmax(220px, 1fr));
-    gap: 20px;
-}
-
-.card {
-    background: white;
-    border-radius: 16px;
-    overflow: hidden;
-    box-shadow: 0 4px 15px rgba(0,0,0,.07);
-}
-
-.photo {
-    height: 180px;
-    background: #e5e7eb;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 55px;
-}
-
-.info {
-    padding: 15px;
-}
-
-.badge {
-    display: inline-block;
-    background: #ede9fe;
-    color: #5b21b6;
-    padding: 5px 9px;
-    border-radius: 8px;
-    font-size: 12px;
-    margin-bottom: 8px;
-}
-
-.price {
-    color: #5b21b6;
-    font-size: 21px;
-    font-weight: bold;
-    margin: 10px 0;
-}
-
-.location {
-    color: #777;
-    font-size: 14px;
-    margin-bottom: 12px;
-}
-
-.actions {
-    display: flex;
-    gap: 8px;
-}
-
-.buy {
-    flex: 1;
-    background: #5b21b6;
-    color: white;
-    border: none;
-    padding: 11px;
-    border-radius: 10px;
-    font-weight: bold;
-}
-
-.ask {
-    flex: 1;
-    background: #eee;
-    border: none;
-    padding: 11px;
-    border-radius: 10px;
-}
-
-.sell {
-    position: fixed;
-    right: 20px;
-    bottom: 20px;
-    background: #5b21b6;
-    color: white;
-    border: none;
-    padding: 16px 22px;
-    border-radius: 30px;
-    font-size: 16px;
-    font-weight: bold;
-    box-shadow: 0 5px 20px rgba(0,0,0,.2);
-}
-
-footer {
-    text-align: center;
-    padding: 40px;
-    margin-top: 40px;
-    color: #777;
-}
-
-@media(max-width:600px) {
-    .hero h1 {
-        font-size: 28px;
+    .hero h2 {
+      color: #5b21b6;
+      margin-bottom: 10px;
     }
 
     .search {
-        flex-direction: column;
+      width: 100%;
+      padding: 14px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      margin: 15px 0 20px;
+      font-size: 16px;
     }
 
-    .top {
-        flex-wrap: wrap;
+    .products {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 18px;
     }
-}
-</style>
+
+    .product {
+      background: white;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+    }
+
+    .product img {
+      width: 100%;
+      height: 190px;
+      object-fit: cover;
+      background: #ddd;
+    }
+
+    .product-info {
+      padding: 15px;
+    }
+
+    .product h3 {
+      margin-bottom: 8px;
+    }
+
+    .price {
+      color: #5b21b6;
+      font-size: 20px;
+      font-weight: bold;
+      margin: 8px 0;
+    }
+
+    .product button,
+    .primary {
+      width: 100%;
+      border: none;
+      background: #5b21b6;
+      color: white;
+      padding: 12px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: bold;
+      margin-top: 8px;
+    }
+
+    .product button:hover,
+    .primary:hover {
+      background: #4c1d95;
+    }
+
+    .secondary {
+      width: 100%;
+      border: none;
+      background: #e5e7eb;
+      color: #222;
+      padding: 12px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: bold;
+      margin-top: 8px;
+    }
+
+    .section {
+      display: none;
+      background: white;
+      padding: 22px;
+      border-radius: 12px;
+      margin-top: 20px;
+    }
+
+    .section.active {
+      display: block;
+    }
+
+    .form-group {
+      margin-bottom: 15px;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 6px;
+      font-weight: bold;
+    }
+
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+    }
+
+    textarea {
+      min-height: 100px;
+      resize: vertical;
+    }
+
+    #preview {
+      max-width: 250px;
+      max-height: 200px;
+      margin-top: 10px;
+      border-radius: 8px;
+      display: none;
+    }
+
+    .chat-box {
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      padding: 15px;
+      margin-top: 15px;
+    }
+
+    .messages {
+      height: 220px;
+      overflow-y: auto;
+      background: #f5f5f5;
+      padding: 10px;
+      border-radius: 8px;
+      margin-bottom: 10px;
+    }
+
+    .message {
+      background: white;
+      padding: 9px;
+      margin-bottom: 8px;
+      border-radius: 8px;
+    }
+
+    .message.me {
+      background: #ddd6fe;
+      text-align: right;
+    }
+
+    .chat-input {
+      display: flex;
+      gap: 8px;
+    }
+
+    .chat-input input {
+      flex: 1;
+      padding: 12px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+    }
+
+    .chat-input button {
+      border: none;
+      background: #5b21b6;
+      color: white;
+      padding: 12px 18px;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    footer {
+      margin-top: 40px;
+      background: #111827;
+      color: white;
+      text-align: center;
+      padding: 25px;
+    }
+
+    .empty {
+      text-align: center;
+      padding: 30px;
+      color: #666;
+    }
+  </style>
 </head>
 
 <body>
 
 <header>
-    <div class="top">
-        <div class="logo">🏪 BusinessHub</div>
-
-        <button class="login">
-            Entrar / Criar conta
-        </button>
-    </div>
+  <h1>BusinessHub</h1>
+  <p>Compre, venda e conecte-se com pessoas.</p>
 </header>
 
-<section class="hero">
+<nav>
+  <button onclick="mostrar('inicio')">🏠 Início</button>
+  <button onclick="mostrar('vender')">🛍️ Vender produtos</button>
+  <button onclick="mostrar('perguntas')">❓ Perguntas</button>
+  <button onclick="mostrar('compras')">🛒 Compras</button>
+</nav>
 
-    <h1>Compra. Vende. Encontra. 🚀</h1>
+<div class="container">
 
-    <p>
-        O teu marketplace para produtos novos e usados.
+  <!-- INÍCIO -->
+  <div id="inicio" class="section active">
+
+    <div class="hero">
+      <h2>Bem-vindo ao BusinessHub</h2>
+      <p>Encontre produtos ou publique aquilo que deseja vender.</p>
+    </div>
+
+    <input
+      type="text"
+      id="pesquisa"
+      class="search"
+      placeholder="🔎 Procurar produtos..."
+      oninput="pesquisarProdutos()"
+    >
+
+    <div id="listaProdutos" class="products"></div>
+
+  </div>
+
+
+  <!-- VENDER -->
+  <div id="vender" class="section">
+
+    <h2>🛍️ Vender produto</h2>
+    <p style="margin:10px 0 20px;">
+      Publique o seu produto no BusinessHub.
     </p>
 
-    <div class="search">
+    <div class="form-group">
+      <label>Nome do produto</label>
+      <input id="nomeProduto" type="text" placeholder="Ex.: Telefone Samsung">
+    </div>
 
-        <input
-            type="text"
-            placeholder="O que estás à procura?"
-        >
+    <div class="form-group">
+      <label>Preço</label>
+      <input id="precoProduto" type="number" placeholder="Ex.: 150000">
+    </div>
 
-        <button>Pesquisar</button>
+    <div class="form-group">
+      <label>Descrição</label>
+      <textarea id="descricaoProduto" placeholder="Descreva o produto..."></textarea>
+    </div>
+
+    <div class="form-group">
+      <label>Foto do produto</label>
+      <input id="fotoProduto" type="file" accept="image/*" onchange="mostrarFoto(event)">
+      <img id="preview">
+    </div>
+
+    <button class="primary" onclick="publicarProduto()">
+      📤 Publicar produto
+    </button>
+
+  </div>
+
+
+  <!-- PERGUNTAS -->
+  <div id="perguntas" class="section">
+
+    <h2>❓ Perguntas</h2>
+
+    <div class="form-group" style="margin-top:20px;">
+      <label>Faça uma pergunta</label>
+      <textarea id="pergunta" placeholder="Escreva a sua pergunta..."></textarea>
+    </div>
+
+    <button class="primary" onclick="enviarPergunta()">
+      Enviar pergunta
+    </button>
+
+    <div id="listaPerguntas" style="margin-top:20px;"></div>
+
+  </div>
+
+
+  <!-- COMPRAS -->
+  <div id="compras" class="section">
+
+    <h2>🛒 Minhas compras</h2>
+
+    <div id="listaCompras" class="empty">
+      Ainda não realizou nenhuma compra.
+    </div>
+
+  </div>
+
+
+  <!-- CHAT -->
+  <div id="chat" class="section">
+
+    <h2>💬 Chat com vendedor</h2>
+
+    <div class="chat-box">
+
+      <div id="messages" class="messages">
+        <div class="message">
+          Olá! Como posso ajudar?
+        </div>
+      </div>
+
+      <div class="chat-input">
+        <input id="chatMessage" type="text" placeholder="Escreva uma mensagem...">
+        <button onclick="enviarMensagem()">Enviar</button>
+      </div>
 
     </div>
 
-</section>
+  </div>
 
-<section class="categories">
+</div>
 
-    <button>📱 Eletrónicos</button>
-    <button>👕 Moda</button>
-    <button>🚗 Automóveis</button>
-    <button>🏠 Casa</button>
-    <button>🎮 Jogos</button>
-    <button>📦 Outros</button>
-
-</section>
-
-<section class="products">
-
-    <h2>🔥 Produtos em destaque</h2>
-
-    <div class="grid">
-
-        <div class="card">
-
-            <div class="photo">📱</div>
-
-            <div class="info">
-
-                <span class="badge">Usado</span>
-
-                <h3>Smartphone Android</h3>
-
-                <div class="price">
-                    85.000 Kz
-                </div>
-
-                <div class="location">
-                    📍 Luanda
-                </div>
-
-                <div class="actions">
-
-                    <button class="buy">
-                        Comprar
-                    </button>
-
-                    <button class="ask">
-                        Perguntar
-                    </button>
-
-                </div>
-
-            </div>
-
-        </div>
-
-
-        <div class="card">
-
-            <div class="photo">💻</div>
-
-            <div class="info">
-
-                <span class="badge">Usado</span>
-
-                <h3>Computador portátil</h3>
-
-                <div class="price">
-                    120.000 Kz
-                </div>
-
-                <div class="location">
-                    📍 Viana
-                </div>
-
-                <div class="actions">
-
-                    <button class="buy">
-                        Comprar
-                    </button>
-
-                    <button class="ask">
-                        Perguntar
-                    </button>
-
-                </div>
-
-            </div>
-
-        </div>
-
-
-        <div class="card">
-
-            <div class="photo">🎮</div>
-
-            <div class="info">
-
-                <span class="badge">Usado</span>
-
-                <h3>PlayStation</h3>
-
-                <div class="price">
-                    150.000 Kz
-                </div>
-
-                <div class="location">
-                    📍 Kilamba
-                </div>
-
-                <div class="actions">
-
-                    <button class="buy">
-                        Comprar
-                    </button>
-
-                    <button class="ask">
-                        Perguntar
-                    </button>
-
-                </div>
-
-            </div>
-
-        </div>
-
-
-        <div class="card">
-
-            <div class="photo">👟</div>
-
-            <div class="info">
-
-                <span class="badge">Novo</span>
-
-                <h3>Ténis masculino</h3>
-
-                <div class="price">
-                    35.000 Kz
-                </div>
-
-                <div class="location">
-                    📍 Talatona
-                </div>
-
-                <div class="actions">
-
-                    <button class="buy">
-                        Comprar
-                    </button>
-
-                    <button class="ask">
-                        Perguntar
-                    </button>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-<button class="sell">
-    ＋ Vender produto
-</button>
 
 <footer>
-    © 2026 BusinessHub
+  <p>© 2026 BusinessHub</p>
+  <p style="margin-top:5px;">Compre. Venda. Conecte-se.</p>
 </footer>
 
-</body>
-</html>
+
+<script>
+
+  let produtos = [];
+
+  let compras = [];
+
+  let perguntas = [];
+
+
+  // PRODUTOS DE EXEMPLO
+
+  produtos.push({
+    id: 1,
+    nome: "Smartphone",
+    preco: 150000,
+    descricao: "Smartphone em bom estado.",
+    imagem: "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=600"
+  });
+
+  produtos.push({
+    id: 2,
+    nome: "Computador",
+    preco: 250000,
+    descricao: "Computador para trabalho e estudos.",
+    imagem: "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=600"
+  });
+
+
+  // MOSTRAR SEÇÃO
+
+  function mostrar(id) {
+
+    document.querySelectorAll(".section").forEach(function(secao) {
+      secao.classList.remove("active");
+    });
+
+    document.getElementById(id).classList.add("active");
+
+    if (id === "inicio") {
+      mostrarProdutos();
+    }
+
+    if (id === "compras") {
+      mostrarCompras();
+    }
+
+  }
+
+
+  // MOSTRAR PRODUTOS
+
+  function mostrarProdutos(lista = produtos) {
+
+    const container = document.getElementById("listaProdutos");
+
+    container.innerHTML = "";
+
+    if (lista.length === 0) {
+
+      container.innerHTML =
+        '<div class="empty">Nenhum produto encontrado.</div>';
+
+      return;
+    }
+
+
+    lista.forEach(function(produto) {
+
+      const card = document.createElement("div");
+
+      card.className = "product";
+
+      card.innerHTML = `
+
+        <img src="${produto.imagem}" alt="${produto.nome}">
+
+        <div class="product-info">
+
+          <h3>${produto.nome}</h3>
+
+          <div class="price">
+            ${Number(produto.preco).toLocaleString("pt-AO")} Kz
+          </div>
+
+          <p>${produto.descricao}</p>
+
+          <button onclick="comprar(${produto.id})">
+            🛒 Comprar
+          </button>
+
+          <button class="secondary" onclick="abrirChat('${produto.nome}')">
+            💬 Falar com vendedor
+          </button>
+
+        </div>
+
+      `;
+
+      container.appendChild(card);
+
+    });
+
+  }
+
+
+  // PESQUISAR
+
+  function pesquisarProdutos() {
+
+    const texto =
+      document.getElementById("pesquisa").value.toLowerCase();
+
+    const resultado = produtos.filter(function(produto) {
+
+      return produto.nome.toLowerCase().includes(texto) ||
+             produto.descricao.toLowerCase().includes(texto);
+
+    });
+
+    mostrarProdutos(resultado);
+
+  }
+
+
+  // MOSTRAR FOTO
+
+  function mostrarFoto(event) {
+
+    const arquivo = event.target.files[0];
+
+    if (!arquivo) return;
+
+    const reader = new FileReader();
+
+    reader.onload = function(e) {
+
+      const preview = document.getElementById("preview");
+
+      preview.src = e.target.result;
+
+      preview.style.display = "block";
+
+    };
+
+    reader.readAsDataURL(arquivo);
+
+  }
+
+
+  // PUBLICAR PRODUTO
+
+  function publicarProduto() {
+
+    const nome =
+      document.getElementById("nomeProduto").value.trim();
+
+    const preco =
+      document.getElementById("precoProduto").value;
+
+    const descricao =
+      document.getElementById("descricaoProduto").value.trim();
+
+    const foto =
+      document.getElementById("fotoProduto").files[0];
+
+
+    if (!nome || !preco || !descricao || !foto) {
+
+      alert("Preencha todos os campos e escolha uma foto.");
+
+      return;
+
+    }
+
+
+    const reader = new FileReader();
+
+    reader.onload = function(e) {
+
+      produtos.unshift({
+
+        id: Date.now(),
+
+        nome: nome,
+
+        preco: Number(preco),
+
+        descricao: descricao,
+
+        imagem: e.target.result
+
+      });
+
+
+      document.getElementById("nomeProduto").value = "";
+
+      document.getElementById("precoProduto").value = "";
+
+     
